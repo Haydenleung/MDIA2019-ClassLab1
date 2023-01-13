@@ -39,29 +39,41 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <label>First name:</label>
-        <input
-          type="text"
-          id="first"
-          name="first"
-          pattern="[A-Z]{1}[a-z]{2,10}"
-          title="The first letter should be uppercase"
-          onChange={(e => setFormData({...formData, firstName: e.target.value}))}
-        />
+      <img src="/window.svg" className={styles.folder}></img>  
+        <section className={styles.userform}>      
+          <div className={styles.singleInput}>
+            <label>first name</label>
+            <input
+              type="text"
+              id="first"
+              name="first"
+              pattern="[A-Z]{1}[a-z]{2,10}"
+              title="The first letter should be uppercase"
+              onChange={(e => setFormData({...formData, firstName: e.target.value}))}
+              className={styles.formInput}
+              placeholder="Required"
+            />
+          </div>
+          <div className={styles.singleInput}>
+            <label>username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              required
+              minLength="5"
+              maxLength="10"
+              onChange={(e => setFormData({...formData, username: e.target.value}))}
+              className={styles.formInput}
+              placeholder="Required"
+            />
+          </div>
+          <button tyoe="submit" onClick={() => CheckLogin()} className={styles.buttonSubmit}>submit</button>
+        </section>
+        <img src="/pattern.svg" className={styles.pattern}></img>
 
-        <label>Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          required
-          minLength="5"
-          maxLength="10"
-          onChange={(e => setFormData({...formData, username: e.target.value}))}
-        />
-
-        <button tyoe="submit" onClick={() => CheckLogin()}>Submit</button>
       </main>
+
     </>
   )
 }
